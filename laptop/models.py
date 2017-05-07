@@ -12,7 +12,7 @@ class Laptop(models.Model):
         ('3', 'XO-1.75'),
         ('4', 'XO-4'),
     )
-	serie = models.CharField(primary_key=True, max_length=11)
+	serie = models.CharField(max_length=11)
 	uuid = models.CharField(max_length=32)
 	modelo = models.CharField(max_length=1, choices=MODELOS_XO)
 

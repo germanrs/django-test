@@ -27,3 +27,14 @@ def laptop_list(request):
 	laptop = Laptop.objects.all()
 	contexto = {'laptop':laptop}
 	return render(request, 'laptop/laptop_listar.html', contexto)
+
+def laptop_edit(request, serie):
+	laptop = Laptop.objects.get(serie=id)
+	if request.method == 'GET':
+		form = LaptopForm(instance=laptop)
+	else:
+		form = LaptopForm(request.POST, instance=laptop)
+		if form.is_valid():
+			form.save()
+		return redirect('laptop:laptop_listar')
+	return render(request, 'laptop/laptop_formulario', {'form':form})

@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^laptop', include ('laptop.urls', namespace='laptop')),
-    url(r'^persona', include ('personas.urls')),
+    url(r'^', include ('laptop.urls', namespace='index')),
+    url(r'^laptop/', include ('laptop.urls', namespace='laptop')),
+    url(r'^persona/', include ('personas.urls')),
 ]
