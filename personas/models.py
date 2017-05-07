@@ -15,5 +15,5 @@ class Persona(models.Model):
 	email= models.EmailField()
 	laptop = models.ForeignKey(Laptop, null=True, blank=True, on_delete=models.CASCADE)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.nombre

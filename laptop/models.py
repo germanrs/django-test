@@ -18,3 +18,6 @@ class Laptop(models.Model):
 
 	def __unicode__(self):
 		return self.serie
+
+	def modelo_detalle(self):
+		return dict(Laptop.MODELOS_XO)[self.modelo]
