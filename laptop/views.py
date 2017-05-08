@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from laptop.forms import LaptopForm
 from laptop.models import Laptop
@@ -45,3 +47,24 @@ def laptop_delete(request, laptop_id):
 		laptop.delete()
 		return redirect('laptop:laptop_listar')
 	return render(request, 'laptop/laptop_borrar.html', {'laptop':laptop})
+
+class LaptopList(ListView):
+	model = Laptop
+	template_name = 'laptop/laptop_listar.html'
+
+class LaptopCreate(CreateView):
+	model = Laptop
+	form_class = LaptopForm
+	template_name = 'laptop/laptop_formulario.html'
+	success_url = reverse_lazy('laptop:laptop_listar')
+
+class LaptopUpdate(UpdateView):
+	model = Laptop
+	form_class = LaptopForm
+	template_name = 'laptop/laptop_formulario.html'
+	success_url = reverse_lazy('laptop:laptop_listar')
+
+class LaptopDelete(DeleteView):
+	model = Laptop
+	template_name = 'laptop/laptop_borrar.html'
+	success_url = reverse_lazy('laptop:laptop_listar')
