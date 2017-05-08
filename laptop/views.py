@@ -38,3 +38,10 @@ def laptop_edit(request, laptop_id):
 			form.save()
 		return redirect('laptop:laptop_listar')
 	return render(request, 'laptop/laptop_formulario.html', {'form':form})
+
+def laptop_delete(request, laptop_id):
+	laptop = Laptop.objects.get(id=laptop_id)
+	if request.method == 'POST':
+		laptop.delete()
+		return redirect('laptop:laptop_listar')
+	return render(request, 'laptop/laptop_borrar.html', {'laptop':laptop})

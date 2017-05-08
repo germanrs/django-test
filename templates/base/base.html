@@ -26,7 +26,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">RACII</a>
+      <a class="navbar-brand" href="{% url 'laptop:index' %}">RACII</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,11 +35,11 @@
         <li><a href="#">Laptops</a></li>
         <li><a href="#">Personas</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Incidentes <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laptops <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Crear incidentes</a></li>
-            <li><a href="#">Listar incidentes</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="{% url 'laptop:laptop_listar' %}">Listar laptops</a></li>
+            <li><a href="{% url 'laptop:laptop_crear' %}">Agregar laptops</a></li>
+            <li><a href="#">Editar laptops</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>

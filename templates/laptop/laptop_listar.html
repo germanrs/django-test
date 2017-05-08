@@ -9,6 +9,7 @@
 			<th>Serie</th>
 			<th>UUID</th>
 			<th>Modelo</th>
+			<the>Acciones</th>
 		</tr>
 
 	</thead>
@@ -20,6 +21,10 @@
 			<td>{{ laptop.serie }}</td>
 			<td>{{ laptop.uuid }}</td>
 			<td>{{ laptop.modelo_detalle }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'laptop:laptop_editar' laptop.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'laptop:laptop_eliminar' laptop.id %}">Eliminar</a>
+			</td>
 		</tr>
 		{% endfor %}
 		
